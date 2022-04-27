@@ -1,0 +1,103 @@
+/*!
+@author: Oscar Alderete <wordpress@oscaralderete.com>
+@website: https://wpe.oscaralderete.com
+@editor: NetBeans IDE v12.3
+*/
+@import '_components/_vars';
+
+:root {
+	--oa-dialogs-modal-bg-color: #{$modal-bg-color};
+	--oa-dialogs-font-family: #{$font-family};
+	--oa-dialogs-bg-color: #{$dialog-bg-color};
+	--oa-dialogs-title-font-color: #{$dialog-color};
+	--oa-dialogs-message-font-color: #{$dialog-color};
+	--oa-dialogs-button-font-color: #{$dialog-color};
+	--oa-dialogs-font-size: #{$font-size};
+	--oa-dialogs-min-width: #{$dialog-min-width};
+	--oa-dialogs-max-width: #{$dialog-max-width};
+}
+
+oa-dialogs {
+	position: fixed;
+	display: flex;
+	z-index: $zIndex-dialog;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: var(--oa-dialogs-modal-bg-color);
+	justify-content: center;
+	flex-direction: row;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.15s ease-out;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	> section {
+		background-color: var(--oa-dialogs-bg-color);
+		color: var(--oa-dialogs-message-font-color);
+		align-self: center;
+		padding: 1em;
+		border-radius: 0.4em;
+		box-shadow: 0 0 0.4em #222;
+		font-family: var(--oa-dialogs-font-family);
+		font-size: var(--oa-dialogs-font-size);
+	}
+
+	> section > header {
+		text-align: left;
+		font-weight: 700;
+		color: var(--oa-dialogs-title-font-color);
+		/*-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;*/
+		/* will render e.g.:
+			-moz-user-select: -moz-none;
+		*/
+		@each $i in $dialog-avoid-selections{
+			#{nth($i, 1)}: #{nth($i, 2)};
+		}
+	}
+
+	> section > main {
+		display: block;
+		box-sizing: border-box;
+		margin: 1em 0;
+		min-width: var(--oa-dialogs-min-width);
+		max-width: var(--oa-dialogs-max-width);
+		text-align: left;
+	}
+
+	> section > footer {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	> section > footer > button {
+		margin-left: 0.5em;
+		border: none;
+		background-color: transparent;
+		color: #fff;
+		cursor: pointer;
+		font-family: var(--oa-dialogs-font-family);
+		font-size: var(--oa-dialogs-font-size);
+		border-radius: 0.4em;
+		transition: color 0.4s;
+		font-weight: 700;
+
+		&:hover {
+			color: #aaa;
+		}
+
+		&:disabled {
+			display: none;
+		}
+	}
+
+}

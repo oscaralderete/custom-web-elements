@@ -1,0 +1,75 @@
+/*!
+@author: Oscar Alderete <wordpress@oscaralderete.com>
+@website: https://wpe.oscaralderete.com
+@editor: NetBeans IDE v12.3
+*/
+@import '_components/_vars';
+
+:root{
+	--oa-loader-custom-svg-speed: .75s;
+	--oa-loader-size: #{$loader-size};
+	--oa-loader-spinner: url('#{$loader-spinner}');
+	--oa-loader-bg-color: #{$modal-bg-color};
+	--oa-loader-top: #{$loader-size};
+}
+
+@mixin transform-rotate {
+	from {
+		// e.g.: transform: rotate(0deg);
+		@each $i in $loader-transform-vendors {
+			#{$i}: rotate(0deg);
+		}
+	}
+	to {
+		@each $i in $loader-transform-vendors {
+			#{$i}: rotate(360deg);
+		}
+	}
+}
+
+
+@-webkit-keyframes rotating {
+	@include transform-rotate;
+}
+
+@keyframes rotating {
+	@include transform-rotate;
+}
+
+oa-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	z-index: $zIndex-loader;
+	text-align: center;
+	background: var(--oa-loader-spinner);
+	background-position: center var(--oa-loader-top);
+	background-repeat: no-repeat;
+	background-color: var(--oa-loader-bg-color);
+	background-size: auto var(--oa-loader-size);
+	opacity: 0;
+	visibility: hidden;
+	cursor: auto;
+	transition: all .3s;
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		cursor: wait;
+	}
+
+	svg {
+		margin-top: var(--oa-loader-top);
+		height: var(--oa-loader-size);
+		width: auto;
+		@each $i in $loader-animation-vendors {
+			#{$i}: rotating var(--oa-loader-custom-svg-speed) linear infinite;
+		}
+	}
+}

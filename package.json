@@ -1,0 +1,20 @@
+{
+	"name": "Custom_Web_Components",
+	"version": "1.0.0",
+	"keywords": [
+		"util",
+		"functional",
+		"server",
+		"client",
+		"browser"
+	],
+	"author": "Oscar Alderete <me@oscaralderete.com>",
+	"contributors": [],
+	"devDependencies": {
+		"@babel/core": "^7.17.9",
+		"@babel/preset-env": "^7.16.11",
+		"grunt-babel": "^8.0.0",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-string-replace": "^1.3.1"
+	}
+}
