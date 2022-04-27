@@ -30,7 +30,7 @@ JS:
 
 ```js
 /*
-Next declaration let you use App.loader or App.toast or App.dialog etc. inside your code:
+Next declaration let you to use App.loader or App.toast or App.dialog etc. inside your code:
 */
 <script defer>
 const App = {
