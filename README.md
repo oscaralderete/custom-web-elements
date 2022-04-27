@@ -8,6 +8,12 @@ These are web components that you don't have to markup more than once, because t
 
 Play with it here: [https://oscaralderete.github.io/custom-web-elements/](https://oscaralderete.github.io/custom-web-elements/)
 
+Their integration with JS frameworks is fine, check next samples:
+
+- [https://oscaralderete.github.io/custom-elements-vue/dist/](https://oscaralderete.github.io/custom-elements-vue/dist/)
+- [https://oscaralderete.github.io/custom-elements-svelte/dist/](https://oscaralderete.github.io/custom-elements-svelte/dist/)
+- [https://oscaralderete.github.io/custom-elements-react/dist/](https://oscaralderete.github.io/custom-elements-react/dist/)
+
 HTML:
 
 ```html
