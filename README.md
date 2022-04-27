@@ -6,6 +6,8 @@ For these integrations I used building tools, Vite to be more precisely, Vite is
 
 These are web components that you don't have to markup more than once, because they are based in the principle: "declare once and use everywhere, every time", they're accessible even to deeply nested components.
 
+Play with it here: [https://oscaralderete.github.io/custom-web-elements/](https://oscaralderete.github.io/custom-web-elements/)
+
 HTML:
 
 ```html
