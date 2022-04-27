@@ -99,3 +99,9 @@ There are available some useful :root properties to customize every element. Bel
 - [https://oscaralderete.github.io/custom-elements-vue/dist/](https://oscaralderete.github.io/custom-elements-vue/dist/)
 - [https://oscaralderete.github.io/custom-elements-svelte/dist/](https://oscaralderete.github.io/custom-elements-svelte/dist/)
 - [https://oscaralderete.github.io/custom-elements-react/dist/](https://oscaralderete.github.io/custom-elements-react/dist/)
+
+## Source of JS frameworks integration samples
+
+- [https://github.com/oscaralderete/custom-elements-vue](https://github.com/oscaralderete/custom-elements-vue)
+- [https://github.com/oscaralderete/custom-elements-svelte](https://github.com/oscaralderete/custom-elements-svelte)
+- [https://github.com/oscaralderete/custom-elements-react](https://github.com/oscaralderete/custom-elements-react)
