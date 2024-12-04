@@ -20,7 +20,7 @@ $zIndex-loader: 300;
 
 // oa-loader
 $loader-size: 4em;
-$loader-spinner: 'data:image/svg+xml,%3Csvg viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" x="0px" y="0" width="128" height="128"%3E%3Cpath fill="%23fff" opacity="0.25" d="M 14 64 C 14 36.3854 36.3854 14 64 14 C 91.6146 14 114 36.3854 114 64 C 114 91.6146 91.6146 114 64 114 C 36.3854 114 14 91.6146 14 64 ZM 0 64 C 0 99.3467 28.6533 128 64 128 C 99.3467 128 128 99.3467 128 64 C 128 28.6533 99.3467 0 64 0 C 28.6533 0 0 28.6533 0 64 Z"/%3E%3Cg%3E%3Cpath fill="%23fff" d="M 14 64 C 14 36.3854 36.3854 14 64 14 C 67.866 14 71 10.866 71 7 C 71 3.134 67.866 0 64 0 C 28.6533 0 0 28.6533 0 64 L 14 64 Z"/%3E%3CanimateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="0.75s" repeatCount="indefinite"/%3E%3C/g%3E%3C/svg%3E';
+$loader-spinner: "data:image/svg+xml,%3Csvg viewBox='0 0 128 128' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' x='0' y='0' width='128' height='128'%3E%3Cpath fill='%23fff' opacity='0.25' d='M 14 64 C 14 36.3854 36.3854 14 64 14 C 91.6146 14 114 36.3854 114 64 C 114 91.6146 91.6146 114 64 114 C 36.3854 114 14 91.6146 14 64 ZM 0 64 C 0 99.3467 28.6533 128 64 128 C 99.3467 128 128 99.3467 128 64 C 128 28.6533 99.3467 0 64 0 C 28.6533 0 0 28.6533 0 64 Z'/%3E%3Cg%3E%3Cpath fill='%23fff' d='M 14 64 C 14 36.3854 36.3854 14 64 14 C 67.866 14 71 10.866 71 7 C 71 3.134 67.866 0 64 0 C 28.6533 0 0 28.6533 0 64 L 14 64 Z'/%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='0.75s' repeatCount='indefinite'/%3E%3C/g%3E%3C/svg%3E";
 $loader-transform-vendors: -ms-transform -moz-transform -webkit-transform -o-transform transform;
 $loader-animation-vendors: -webkit-animation -moz-animation -ms-animation -o-animation animation;
 
@@ -30,6 +30,7 @@ $dialog-color: #fff;
 $dialog-min-width: 220px;
 $dialog-max-width: 320px;
 $dialog-avoid-selections: -moz-user-select -moz-none, -khtml-user-select none, -webkit-user-select none, -ms-user-select none, user-select none;
+$dialog-z-index: $zIndex-dialog;
 
 // oa-toast
 $toast-bg-color-default: $dialog-bg-color;

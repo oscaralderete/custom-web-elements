@@ -1,7 +1,6 @@
 /*!
  @author: Oscar Alderete <wordpress@oscaralderete.com>
  @website: https://wpe.oscaralderete.com
- @editor: NetBeans IDE v12.3
  */
 customElements.define('oa-loader', class extends HTMLElement {
 	constructor() {

@@ -2,7 +2,7 @@ const author = {
 	name: 'Oscar Alderete',
 	email: 'me@oscaralderete.com',
 	website: 'https://oscaralderete.com',
-	version: '1.0.1',
+	version: '1.0.2',
 };
 author.banner = '/*!\n@author: ' + author.name + ' <' + author.email + '>\n@website: ' + author.website + '\n@version: ' + author.version + '\n*/';
 
@@ -24,6 +24,7 @@ module.exports = (grunt) => {
 					[`js/OADialogs.${author.version}.js`]: '_src/js/OADialogs.1.0.0.js',
 					[`js/OALoader.${author.version}.js`]: '_src/js/OALoader.1.0.0.js',
 					[`js/OAToast.${author.version}.js`]: '_src/js/OAToast.1.0.0.js',
+					[`js/OA.${author.version}.js`]: `_src/js/OA.${author.version}.js`,
 				}
 			}
 		},
@@ -69,8 +70,8 @@ module.exports = (grunt) => {
 				separator: "",
 			},
 			dist: {
-				src: [`js/OADialogs.${author.version}.js`, `js/OAToast.${author.version}.js`, `js/OALoader.${author.version}.js`],
-				dest: `js/OA.${author.version}.js`,
+				src: [`_src/js/OADialogs.1.0.0.js`, `_src/js/OAToast.1.0.0.js`, `_src/js/OALoader.1.0.0.js`],
+				dest: `_src/js/OA.${author.version}.js`,
 			},
 			css: {
 				src: [`css/OADialogs.1.0.0.css`, `css/OAToast.1.0.0.css`, `css/OALoader.1.0.0.css`],
@@ -85,7 +86,7 @@ module.exports = (grunt) => {
 					'_src/js/*.*',
 					'_scss/*.*'
 				],
-				tasks: ['babel', 'sass', 'string-replace', 'concat']
+				tasks: ['concat', 'babel', 'sass', 'string-replace']
 			}
 		}
 	});

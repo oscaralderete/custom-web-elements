@@ -1,7 +1,6 @@
 /*!
 @author: Oscar Alderete <wordpress@oscaralderete.com>
 @website: https://wpe.oscaralderete.com
-@editor: NetBeans IDE v12.3
 */
 customElements.define('oa-toast', class extends HTMLElement {
 	// properties
@@ -85,7 +84,7 @@ customElements.define('oa-toast', class extends HTMLElement {
 		}
 	}
 
-	// some variants: error, success + warning
+	// new shorcuts: error, success + warning
 	error(str) {
 		this.show({
 			type: 'error',

@@ -14,12 +14,13 @@
 	--oa-dialogs-font-size: #{$font-size};
 	--oa-dialogs-min-width: #{$dialog-min-width};
 	--oa-dialogs-max-width: #{$dialog-max-width};
+		--oa-dialogs-z-index: #{$dialog-z-index};
 }
 
 oa-dialogs {
 	position: fixed;
 	display: flex;
-	z-index: $zIndex-dialog;
+	z-index: var(--oa-dialogs-z-index);
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -72,6 +73,7 @@ oa-dialogs {
 		min-width: var(--oa-dialogs-min-width);
 		max-width: var(--oa-dialogs-max-width);
 		text-align: left;
+		white-space: pre-line;
 	}
 
 	>section>footer {

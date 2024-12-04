@@ -6,11 +6,12 @@
 @import '_components/_vars';
 
 :root {
-	--oa-loader-custom-svg-speed: .75s;
+	--oa-loader-custom-svg-speed: .78s;
 	--oa-loader-size: #{$loader-size};
-	--oa-loader-spinner: url('#{$loader-spinner}');
+--oa-loader-spinner: url("#{$loader-spinner}");
 	--oa-loader-bg-color: #{$modal-bg-color};
 	--oa-loader-top: #{$loader-size};
+--oa-loader-z-index: #{$zIndex-loader};
 }
 
 @mixin transform-rotate {
@@ -48,7 +49,7 @@ oa-loader {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	z-index: $zIndex-loader;
+	z-index: var(--oa-loader-z-index);
 	text-align: center;
 	background: var(--oa-loader-spinner);
 	background-position: center var(--oa-loader-top);

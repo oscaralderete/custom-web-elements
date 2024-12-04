@@ -15,6 +15,7 @@
 	--oa-toast-default-bg-color: #{$toast-bg-color-default};
 	--oa-toast-font-family: #{$font-family};
 	--oa-toast-font-color: #{$toast-font-color};
+	--oa-toast-z-index: #{$zIndex-toast};
 
 	@each $i in $toast-types {
 		/* will render e.g.:
@@ -37,7 +38,7 @@ oa-toast {
 	transform: translateX(-50%);
 	opacity: 0;
 	visibility: hidden;
-	z-index: $zIndex-toast;
+	z-index: var(--oa-toast-z-index);
 	transition: all 0.25s;
 
 	>section {
