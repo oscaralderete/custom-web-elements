@@ -1,7 +1,6 @@
 /*!
 @author: Oscar Alderete <wordpress@oscaralderete.com>
 @website: https://wpe.oscaralderete.com
-@editor: NetBeans IDE v12.3
 */
 @import '_components/_vars';
 
@@ -37,7 +36,7 @@ oa-dialogs {
 		opacity: 1;
 	}
 
-	> section {
+	>section {
 		background-color: var(--oa-dialogs-bg-color);
 		color: var(--oa-dialogs-message-font-color);
 		align-self: center;
@@ -48,10 +47,11 @@ oa-dialogs {
 		font-size: var(--oa-dialogs-font-size);
 	}
 
-	> section > header {
+	>section>header {
 		text-align: left;
 		font-weight: 700;
 		color: var(--oa-dialogs-title-font-color);
+
 		/*-moz-user-select: -moz-none;
 		-khtml-user-select: none;
 		-webkit-user-select: none;
@@ -60,12 +60,12 @@ oa-dialogs {
 		/* will render e.g.:
 			-moz-user-select: -moz-none;
 		*/
-		@each $i in $dialog-avoid-selections{
+		@each $i in $dialog-avoid-selections {
 			#{nth($i, 1)}: #{nth($i, 2)};
 		}
 	}
 
-	> section > main {
+	>section>main {
 		display: block;
 		box-sizing: border-box;
 		margin: 1em 0;
@@ -74,12 +74,12 @@ oa-dialogs {
 		text-align: left;
 	}
 
-	> section > footer {
+	>section>footer {
 		display: flex;
 		flex-direction: row-reverse;
 	}
 
-	> section > footer > button {
+	>section>footer>button {
 		margin-left: 0.5em;
 		border: none;
 		background-color: transparent;

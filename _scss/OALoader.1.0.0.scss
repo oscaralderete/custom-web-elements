@@ -1,11 +1,11 @@
 /*!
 @author: Oscar Alderete <wordpress@oscaralderete.com>
 @website: https://wpe.oscaralderete.com
-@editor: NetBeans IDE v12.3
 */
+
 @import '_components/_vars';
 
-:root{
+:root {
 	--oa-loader-custom-svg-speed: .75s;
 	--oa-loader-size: #{$loader-size};
 	--oa-loader-spinner: url('#{$loader-spinner}');
@@ -15,11 +15,13 @@
 
 @mixin transform-rotate {
 	from {
+
 		// e.g.: transform: rotate(0deg);
 		@each $i in $loader-transform-vendors {
 			#{$i}: rotate(0deg);
 		}
 	}
+
 	to {
 		@each $i in $loader-transform-vendors {
 			#{$i}: rotate(360deg);
@@ -68,6 +70,7 @@ oa-loader {
 		margin-top: var(--oa-loader-top);
 		height: var(--oa-loader-size);
 		width: auto;
+
 		@each $i in $loader-animation-vendors {
 			#{$i}: rotating var(--oa-loader-custom-svg-speed) linear infinite;
 		}

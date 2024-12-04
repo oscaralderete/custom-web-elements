@@ -1,223 +1,274 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>TODO supply a title</title>
-<meta charset="UTF-8">
-<meta name="author" content="Oscar Alderete, me@oscaralderete.com - https://oscaralderete.com">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/OAToast.1.0.0.css">
-<link rel="stylesheet" href="css/OADialogs.1.0.0.css">
-<link rel="stylesheet" href="css/OALoader.1.0.0.css">
-<style>
-	body {
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 1em;
-	}
-	label {
-		display: block
-	}
-	label.inline {
-		display: inline
-	}
-	.center {
-		text-align: center
-	}
-</style>
+	<title>TODO supply a title</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Oscar Alderete, me@oscaralderete.com - https://oscaralderete.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/OAToast.1.0.0.css">
+	<link rel="stylesheet" href="css/OADialogs.1.0.0.css">
+	<link rel="stylesheet" href="css/OALoader.1.0.0.css">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 1em;
+		}
+
+		label {
+			display: block
+		}
+
+		label.inline {
+			display: inline
+		}
+
+		.center {
+			text-align: center
+		}
+	</style>
 
 </head>
+
 <body>
 
-<main>
-	<h1 class="center">Custom Web Elements</h1>
+	<main>
+		<h1 class="center">Custom Web Elements</h1><button type="button" onclick="App.tryMe()">Test me</button>
 
-	<section>
-		<p>This series about Custom Web Elements, starts when as part of my daily work, they asked me to move a site made on Vue 2 to Svelte.</p>
-		<p>Svelte is cool, and I like it a lot. I played with it enough to start coding Svelte in a "real project", but most of my work is made on Vue JS and then, suddendly I need to start from zero. And if you're a developer, you know that such simple elements like a loader, dialogs and toast are always present in every project, no matter if its surname is Vue, Svelte, React or whatever.</p>
-		<p>So, thinking in a solution to get "modules" that I can run between different JS frameworks/libraries, I found a solution in <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements" target="_blank">Custom Web Elements</a></strong> an interesting approach to get that interoperability.</p>
-		<p><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements" target="_blank">Custom Web Elements</a></strong> are here since a while, but it looks that they're not very well known (at least, they weren't to me). Actually my first custom element was a modal component to handle forms because 70% or 80% of my work consist in collect data to send it to databases, that custom element was scripted as recently as in November 2020 in a large PHP project based on plain JS and some jQuery.</p>
-		<p>Back to <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements" target="_blank">Custom Web Elements</a></strong>, the idea is simple, another tag just like a <i>div</i>, <i>input</i>, <i>button</i>, etc. but with "special powers" via custom methods, likewise your custom element can contain another elements, as much as you need actually. Best of all, as tags they can be used with each of your favorite JS framework/library without changes, modifications or adaptations!</p>
-		<p>I started to play with <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements" target="_blank">Custom Web Elements</a></strong> and now I'm taking them more seriously, they are powerful tools that will make your developer life easier.</p>
-		<p>&nbsp;</p>
-	</section>
+		<section>
+			<p>This series about Custom Web Elements, starts when as part of my daily work, they asked me to move a site
+				made on Vue 2 to Svelte.</p>
+			<p>Svelte is cool, and I like it a lot. I played with it enough to start coding Svelte in a "real project",
+				but most of my work is made on Vue JS and then, suddendly I need to start from zero. And if you're a
+				developer, you know that such simple elements like a loader, dialogs and toast are always present in
+				every project, no matter if its surname is Vue, Svelte, React or whatever.</p>
+			<p>So, thinking in a solution to get "modules" that I can run between different JS frameworks/libraries, I
+				found a solution in <strong><a
+						href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
+						target="_blank">Custom Web Elements</a></strong> an interesting approach to get that
+				interoperability.</p>
+			<p><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
+						target="_blank">Custom Web Elements</a></strong> are here since a while, but it looks that
+				they're not very well known (at least, they weren't to me). Actually my first custom element was a modal
+				component to handle forms because 70% or 80% of my work consist in collect data to send it to databases,
+				that custom element was scripted as recently as in November 2020 in a large PHP project based on plain
+				JS and some jQuery.</p>
+			<p>Back to <strong><a
+						href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
+						target="_blank">Custom Web Elements</a></strong>, the idea is simple, another tag just like a
+				<i>div</i>, <i>input</i>, <i>button</i>, etc. but with "special powers" via custom methods, likewise
+				your custom element can contain another elements, as much as you need actually. Best of all, as tags
+				they can be used with each of your favorite JS framework/library without changes, modifications or
+				adaptations!
+			</p>
+			<p>I started to play with <strong><a
+						href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
+						target="_blank">Custom Web Elements</a></strong> and now I'm taking them more seriously, they
+				are powerful tools that will make your developer life easier.</p>
+			<p>&nbsp;</p>
+		</section>
 
-	<section>
-		<h3>a. OALoader &lt;oa-loader /&gt;</h3>
-		<p>If you have to fetch or post data from/to APIs or controllers then you need to use Ajax, because it gets to your user the best experience. As an asynchronous task, it will take a while, just a blink with fast internet, but still you need a loader.</p>
-		<p>Most of my front-end work consist in develop user interfaces to display data, to CRUD data, to process data in form of charts, PDFs, CSVs, etc. Every new project has its own features, but at the end all of them require a loader with a custom logo and maybe the corporative colors.</p>
-		<p>To prove the functionality of my custom web element I developed 3 basic CLI projects using Vue, Svelte and even React (it seems I'm not a huge fan of React and it's true :):):). The big question: Can &lt;oa-loader /&gt; run as it is between all those different JS platforms? The answer is yes!</p>
-		<div>
-			<label>Bg color: <input type="color" id="loader-bg-color" value="#000"></label>
-			<label>Opacity: <input type="range" id="loader-bg-opacity" min="0" max="1" step=".1" value=".5"></label>
-			<button onclick="App.showLoader()">Show loader</button>
-			<pre>
-
-			</pre>
-		</div>
-	</section>
-
-	<section>
-		<h3>b. OAToast &lt;oa-toast /&gt;</h3>
-		<p>If you interact with data through asynchronous tasks then you need an unobtrusive way to tell your users about the effects of their actions. </p>
-		<p>Well, this is a task for &lt;oa-toast /&gt; .</p>
-		<div>
-			<label>Write your message: <input type="text" id="toast-message" placeholder="e.g. 'Hello there!'"></label>
-			<label>Position:
-				<label class="inline"><input type="radio" name="toast-position" value="top"> Top</label> &nbsp;
-				<label class="inline"><input type="radio" name="toast-position" value="bottom" checked> Bottom</label>
-			</label>
+		<section>
+			<h3>a. OALoader &lt;oa-loader /&gt;</h3>
+			<p>If you have to fetch or post data from/to APIs or controllers then you need to use Ajax, because it gets
+				to your user the best experience. As an asynchronous task, it will take a while, just a blink with fast
+				internet, but still you need a loader.</p>
+			<p>Most of my front-end work consist in develop user interfaces to display data, to CRUD data, to process
+				data in form of charts, PDFs, CSVs, etc. Every new project has its own features, but at the end all of
+				them require a loader with a custom logo and maybe the corporative colors.</p>
+			<p>To prove the functionality of my custom web element I developed 3 basic CLI projects using Vue, Svelte
+				and even React (it seems I'm not a huge fan of React and it's true :):):). The big question: Can
+				&lt;oa-loader /&gt; run as it is between all those different JS platforms? The answer is yes!</p>
 			<div>
-				<button onclick="App.showToast()">Regular toast</button>
-				<button onclick="App.showToast('success')">Success toast</button>
-				<button onclick="App.showToast('error')">Error toast</button>
-				<button onclick="App.showToast('warning')">Warning toast</button>
+				<label>Bg color: <input type="color" id="loader-bg-color" value="#000"></label>
+				<label>Opacity: <input type="range" id="loader-bg-opacity" min="0" max="1" step=".1" value=".5"></label>
+				<button onclick="App.showLoader()">Show loader</button>
+				<pre>
+
+</pre>
 			</div>
-			<pre>
+		</section>
 
-			</pre>
-		</div>
-	</section>
-
-	<section>
-		<h3>c. OADialogs &lt;oa-dialogs /&gt;</h3>
-		<p>Most of CRUD actions require you consult your user when something critical will happen: delete .</p>
-		<p>Well, this is a task for &lt;oa-toast /&gt; .</p>
-		<div>
-			<label>Title of your message (optional): <input type="text" id="dialogs-title" placeholder="e.g. 'ALERT'"></label>
-			<label>Write your message (required): <input type="text" id="dialogs-message" placeholder="e.g. 'Are you sure?'"></label>
+		<section>
+			<h3>b. OAToast &lt;oa-toast /&gt;</h3>
+			<p>If you interact with data through asynchronous tasks then you need an unobtrusive way to tell your users
+				about the effects of their actions. </p>
+			<p>Well, this is a task for &lt;oa-toast /&gt; .</p>
 			<div>
-				<button onclick="App.showDialog()">Notice (not useful, better use a toast!)</button>
-				<button onclick="App.showDialog('notice_callback')">Notice with OK button callback</button>
-				<button onclick="App.showDialog('both_callbacks')">Cancel + OK buttons with callbacks</button>
+				<label>Write your message: <input type="text" id="toast-message"
+						placeholder="e.g. 'Hello there!'"></label>
+				<label>Position:
+					<label class="inline"><input type="radio" name="toast-position" value="top"> Top</label> &nbsp;
+					<label class="inline"><input type="radio" name="toast-position" value="bottom" checked>
+						Bottom</label>
+				</label>
+				<div>
+					<button onclick="App.showToast()">Regular toast</button>
+					<button onclick="App.showToast('success')">Success toast</button>
+					<button onclick="App.showToast('error')">Error toast</button>
+					<button onclick="App.showToast('warning')">Warning toast</button>
+				</div>
+				<pre>
+
+</pre>
 			</div>
-			<pre>
+		</section>
 
-			</pre>
-		</div>
-	</section>
-</main>
+		<section>
+			<h3>c. OADialogs &lt;oa-dialogs /&gt;</h3>
+			<p>Most of CRUD actions require you consult your user when something critical will happen: delete .</p>
+			<p>Well, this is a task for &lt;oa-toast /&gt; .</p>
+			<div>
+				<label>Title of your message (optional): <input type="text" id="dialogs-title"
+						placeholder="e.g. 'ALERT'"></label>
+				<label>Write your message (required): <input type="text" id="dialogs-message"
+						placeholder="e.g. 'Are you sure?'"></label>
+				<div>
+					<button onclick="App.showDialog()">Notice (not useful, better use a toast!)</button>
+					<button onclick="App.showDialog('notice_callback')">Notice with OK button callback</button>
+					<button onclick="App.showDialog('both_callbacks')">Cancel + OK buttons with callbacks</button>
+				</div>
+				<pre>
 
-<oa-toast></oa-toast>
-<oa-dialogs></oa-dialogs>
-<oa-loader></oa-loader>
+</pre>
+			</div>
+		</section>
+	</main>
 
-<script src="js/OAToast.1.0.0.js"></script>
-<script src="js/OADialogs.1.0.0.js"></script>
-<script src="js/OALoader.1.0.0.js"></script>
-<script>
-const App = {
-	toast: document.querySelector('oa-toast'),
-	dialogs: document.querySelector('oa-dialogs'),
-	loader: document.querySelector('oa-loader'),
-	showLoader() {
-		this.loader.show();
-		this.applyCustomStyles();
-		setTimeout(() => {
-			this.loader.hide();
-		}, 2000);
-	},
-	applyCustomStyles() {
-		let bgColor = document.getElementById('loader-bg-color').value,
-		opacity = document.getElementById('loader-bg-opacity').value,
-		colors = this.hexToRgb(bgColor);
-		this.loader.style.setProperty('--oa-loader-bg-color', `rgba(${colors.red}, ${colors.green}, ${colors.blue}, ${opacity})`);
-	},
-	hexToRgb(str) {
-		let r = 0,
-		g = 0,
-		b = 0;
-		if (str.length === 4) {
-			r = `0x${str[1]}${str[1]}`;
-			g = `0x${str[2]}${str[2]}`;
-			b = `0x${str[3]}${str[3]}`;
-		}
-		else if (str.length === 7) {
-			r = `0x${str[1]}${str[2]}`;
-			g = `0x${str[3]}${str[4]}`;
-			b = `0x${str[5]}${str[6]}`;
-		}
-		return {
-			red: +r,
-			green: +g,
-			blue: +b
-		}
-	},
-	showToast(type = '') {
-		const msg = document.getElementById('toast-message').value;
+	<oa-toast></oa-toast>
+	<oa-dialogs></oa-dialogs>
+	<oa-loader></oa-loader>
 
-		if (msg.trim() === '') {
-			this.toast.show({
-				message: 'Oops, you need to enter a message to toast!',
-				type: 'error'
-			});
-		}
-		else {
-			const obj = {
-				message: msg
-			};
-			// position
-			if (document.querySelector('input[type=radio]:checked').value === 'top') {
-				obj.position = 'top';
-			}
-			// type
-			if (type !== '') {
-				obj.type = type;
-			}
-			this.toast.show(obj);
-		}
-	},
-	showDialog(type = '') {
-		const msg = document.getElementById('dialogs-message').value;
-		
-		if(msg.trim() === ''){
-			this.toast.show({
-				message: 'Oops, the dialog needs a message to display!',
-				type: 'error'
-			});
-		}
-		else{
-			this.deployDialog(msg, type);
-		}
-	},
-	deployDialog(msg, type){
-		const title = document.getElementById('dialogs-title').value,
-			params = {
-				message: msg,
-				title: document.getElementById('dialogs-title').value
-			}
-		switch (type){
-			case '':
-				this.dialogs.deploy(params);
-				break;
+	<script src="js/OAToast.1.0.0.js"></script>
+	<script src="js/OADialogs.1.0.0.js"></script>
+	<script src="js/OALoader.1.0.0.js"></script>
+	<script>
+		const App = {
+			toast: document.querySelector('oa-toast'),
+			dialogs: document.querySelector('oa-dialogs'),
+			loader: document.querySelector('oa-loader'),
+			showLoader() {
+				this.loader.show();
+				this.applyCustomStyles();
+				setTimeout(() => {
+					this.loader.hide();
+				}, 2000);
+			},
+			applyCustomStyles() {
+				let bgColor = document.getElementById('loader-bg-color').value,
+					opacity = document.getElementById('loader-bg-opacity').value,
+					colors = this.hexToRgb(bgColor);
+				this.loader.style.setProperty('--oa-loader-bg-color', `rgba(${colors.red}, ${colors.green}, ${colors.blue}, ${opacity})`);
+			},
+			hexToRgb(str) {
+				let r = 0,
+					g = 0,
+					b = 0;
+				if (str.length === 4) {
+					r = `0x${str[1]}${str[1]}`;
+					g = `0x${str[2]}${str[2]}`;
+					b = `0x${str[3]}${str[3]}`;
+				}
+				else if (str.length === 7) {
+					r = `0x${str[1]}${str[2]}`;
+					g = `0x${str[3]}${str[4]}`;
+					b = `0x${str[5]}${str[6]}`;
+				}
+				return {
+					red: +r,
+					green: +g,
+					blue: +b
+				}
+			},
+			showToast(type = '') {
+				const msg = document.getElementById('toast-message').value;
 
-			case 'notice_callback':
-				params.showCancelButton = true;
-				this.dialogs.deploy(params, () => {
+				if (msg.trim() === '') {
 					this.toast.show({
-						message: `OK, your commands will be fulfilled!`,
-						type: 'success'
-					})
-				});
-				break;
-
-			case 'both_callbacks':
-				this.dialogs.deploy(params, () => {
-					// OK button callback
-					this.toast.show({
-						message: `That implies a big risk but OK!`,
-						type: 'warning'
-					})
-				}, () => {
-					// CANCEL button callback
-					this.toast.show({
-						message: `Cancelling everything...`,
+						message: 'Oops, you need to enter a message to toast!',
 						type: 'error'
-					})
-				});
-				break;
+					});
+				}
+				else {
+					const obj = {
+						message: msg
+					};
+					// position
+					if (document.querySelector('input[type=radio]:checked').value === 'top') {
+						obj.position = 'top';
+					}
+					// type
+					if (type !== '') {
+						obj.type = type;
+					}
+					this.toast.show(obj);
+				}
+			},
+			showDialog(type = '') {
+				const msg = document.getElementById('dialogs-message').value;
+
+				if (msg.trim() === '') {
+					this.toast.show({
+						message: 'Oops, the dialog needs a message to display!',
+						type: 'error'
+					});
+				}
+				else {
+					this.deployDialog(msg, type);
+				}
+			},
+			deployDialog(msg, type) {
+				const title = document.getElementById('dialogs-title').value,
+					params = {
+						message: msg,
+						title: document.getElementById('dialogs-title').value
+					}
+				switch (type) {
+					case '':
+						this.dialogs.deploy(params);
+						break;
+
+					case 'notice_callback':
+						params.showCancelButton = true;
+						this.dialogs.deploy(params, () => {
+							this.toast.show({
+								message: `OK, your commands will be fulfilled!`,
+								type: 'success'
+							})
+						});
+						break;
+
+					case 'both_callbacks':
+						this.dialogs.deploy(params, () => {
+							// OK button callback
+							this.toast.show({
+								message: `That implies a big risk but OK!`,
+								type: 'warning'
+							})
+						}, () => {
+							// CANCEL button callback
+							this.toast.show({
+								message: `Cancelling everything...`,
+								type: 'error'
+							})
+						});
+						break;
+				}
+
+			},
+			tryMe() {
+				this.dialogs.show(
+					{
+						title: 'ALERT',
+						message: 'Are u sure?'
+					},
+					() => {
+						console.log('hello there...')
+					}
+				)
+			}
 		}
-		
-	}
-}
-</script>
+	</script>
 </body>
+
 </html>

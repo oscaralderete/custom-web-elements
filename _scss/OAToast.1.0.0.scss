@@ -1,12 +1,11 @@
 /*!
 @author: Oscar Alderete <wordpress@oscaralderete.com>
 @website: https://wpe.oscaralderete.com
-@editor: NetBeans IDE v12.3
 */
 @import '_components/_vars';
 
 // mixin definition
-@mixin common{
+@mixin common {
 	opacity: 1;
 	visibility: visible;
 }
@@ -16,7 +15,8 @@
 	--oa-toast-default-bg-color: #{$toast-bg-color-default};
 	--oa-toast-font-family: #{$font-family};
 	--oa-toast-font-color: #{$toast-font-color};
-	@each $i in $toast-types{
+
+	@each $i in $toast-types {
 		/* will render e.g.:
 		--oa-toast-success-bg-color: green;
 		*/
@@ -40,7 +40,7 @@ oa-toast {
 	z-index: $zIndex-toast;
 	transition: all 0.25s;
 
-	> section {
+	>section {
 		font-family: var(--oa-toast-font-family);
 		background-color: var(--oa-toast-default-bg-color);
 		color: var(--oa-toast-font-color);
@@ -57,25 +57,25 @@ oa-toast {
 			background-color: #2dcc70;
 		}
 		*/
-		@each $i in $toast-types{
+		@each $i in $toast-types {
 			&.#{nth($i, 1)} {
 				background-color: var(--oa-toast-#{nth($i, 1)}-bg-color);
 			}
 		}
 	}
 
-	&.active{
+	&.active {
 		bottom: $toast-displacement;
 		top: auto;
 		@include common;
 	}
 
-	&.top{
+	&.top {
 		top: 0;
 		bottom: auto
 	}
 
-	&.top.active{
+	&.top.active {
 		bottom: auto;
 		top: $toast-displacement;
 		@include common;

@@ -3,7 +3,7 @@
 @website: https://wpe.oscaralderete.com
 @editor: NetBeans IDE v12.3
 */
-customElements.define('oa-toast', class extends HTMLElement{
+customElements.define('oa-toast', class extends HTMLElement {
 	// properties
 	time = 3.5;			// in seconds
 	#resetTime = 400;	// in milliseconds, it's a private property
@@ -32,7 +32,7 @@ customElements.define('oa-toast', class extends HTMLElement{
 	// displayMsg() is a private function
 	#displayMsg(obj) {
 		const App = {
-			sanitize(str){
+			sanitize(str) {
 				return str.replace(/<(.|\n)*?>/g, '')
 			}
 		}
@@ -44,13 +44,13 @@ customElements.define('oa-toast', class extends HTMLElement{
 			this.#nullTimeout()
 		}
 		section.className = ''
-		if(obj.hasOwnProperty('type') && typeof obj.type === 'string'){
+		if (obj.hasOwnProperty('type') && typeof obj.type === 'string') {
 			section.classList.add(App.sanitize(obj.type))
 		}
 
 		// remove all classes and assign 'top' if necessary
 		this.className = '';
-		if(obj.hasOwnProperty('position') && typeof obj.position === 'string'){
+		if (obj.hasOwnProperty('position') && typeof obj.position === 'string') {
 			this.classList.add(App.sanitize(obj.position))
 		}
 
@@ -61,17 +61,49 @@ customElements.define('oa-toast', class extends HTMLElement{
 		}, this.time * 1000)
 	}
 
-	show(obj) {
-		if(typeof obj === 'object' && obj.hasOwnProperty('message') && typeof obj.message === 'string'){
+	show(param) {
+		let x = { type: 'default', message: '' }
+		// check the typeof param
+		if (typeof param === 'string') {
+			x.message = param
+		}
+		else if (typeof param === 'object' && param.hasOwnProperty('message') && typeof param.message === 'string') {
+			x = { ...param }
+		}
+
+		if (x.hasOwnProperty('message') && typeof x.message === 'string') {
+
 			// nullify current timeout if exists
 			this.#nullTimeout()
 			// checking for a previous instantia
 			setTimeout(() => {
-				this.#displayMsg(obj)
+				this.#displayMsg(x)
 			}, this.#resetTime)
 		}
-		else{
+		else {
 			console.error('OAToast error: You need to pass a valid message.')
 		}
+	}
+
+	// some variants: error, success + warning
+	error(str) {
+		this.show({
+			type: 'error',
+			message: str,
+		})
+	}
+
+	success(str) {
+		this.show({
+			type: 'success',
+			message: str,
+		})
+	}
+
+	warning(str) {
+		this.show({
+			type: 'warning',
+			message: str,
+		})
 	}
 })

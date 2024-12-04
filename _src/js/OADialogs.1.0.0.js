@@ -72,13 +72,13 @@ customElements.define('oa-dialogs', class extends HTMLElement {
 					}
 
 					// show button CANCEL if proceed
-					if(obj.hasOwnProperty('showCancelButton') && obj.showCancelButton && typeof onCancel === 'undefined'){
+					if (obj.hasOwnProperty('showCancelButton') && obj.showCancelButton && typeof onCancel === 'undefined') {
 						buttons[1].disabled = false;
 						buttons[1].onclick = e => {
 							App.toggle(self, false);
 						}
 					}
-					else{
+					else {
 						buttons[1].disabled = true;
 					}
 
@@ -108,5 +108,9 @@ customElements.define('oa-dialogs', class extends HTMLElement {
 		else {
 			console.error('OADialogs error: You need to pass a valid message.')
 		}
+	}
+
+	show(obj, callback) {
+		this.deploy(obj, callback, () => { })
 	}
 })
